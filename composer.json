@@ -1,0 +1,27 @@
+{
+    "name": "teemops/phpawsapi",
+    "description": "Teem Ops Cloud API",
+    "keywords": ["aws", "rest", "router", "psr7"],
+    "homepage": "http://github.com/teemops/phpawsapi",
+    "license": "MIT",
+    "minimum-stability": "stable",
+    "authors": [
+        {
+            "name": "Ben Fellows",
+            "email": "kiwifellows@gmail.com"
+        }
+    ],
+    "require": {
+        "aws/aws-sdk-php": "3.*.*",
+        "voku/simple-mysqli": "4.*.*",
+        "slim/slim": "3.*",
+        "slim/php-view": "^2.0",
+        "monolog/monolog": "^1.17",
+        "tuupola/slim-jwt-auth": "2.*.*",
+        "tuupola/cors-middleware": "*"
+    },
+    "scripts": {
+        "start": "php -S 0.0.0.0:8080 -t public public/index.php",
+        "test": "phpunit"
+	}
+}
