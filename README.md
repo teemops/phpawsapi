@@ -62,33 +62,21 @@ Another example below shows how you can get list the VPCs across all regions usi
 }
 ```
 
-An call can be made using any EC2 CLI Command (See http://docs.aws.amazon.com/aws-sdk-php/v3/api/api-ec2-2016-11-15.html )
+A call can be made using any EC2 CLI Command (See http://docs.aws.amazon.com/aws-sdk-php/v3/api/api-ec2-2016-11-15.html )
 * **POST /ec2/<Command>**
 Example request is:
 POST /ec2/runInstances
 
 ``` json
 {
-    "RoleArn": "arn:aws:iam::<AWS_AccountId>:role/<some_role_name>", 
-    "region": "ap-southeast-2",
-    "params": {
-        "MinCount": 1,
-        "MaxCount": 1,
-        "ImageId": "ami-6e833e0e",
-        "InstanceType": "t2.nano",
-        "SubnetId": "subnet-122323",
-        "SecurityGroupIds": ["sg-656761"],
-        "UserData": "#!/bin/bash\necho test > somefile.txt",
-        "BlockDeviceMappings": [
-            {
-                "DeviceName": "/dev/sda1",
-                "Ebs": {
-                "VolumeSize": 50,
-                "VolumeType": "gp2"
-                }
-            }
-        ]
-    }
+"RoleArn": "arn:aws:iam::<AWS_AccountId>:role/<some_role_name>", 
+"region": "ap-southeast-2",
+"params": {
+	"ImageId": "ami-30041c53", 
+	"MinCount":1, 
+	"MaxCount":1,
+	"InstanceType": "t2.nano"
+	}
 }
 ```
 
