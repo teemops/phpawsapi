@@ -1,6 +1,12 @@
 # Teemops AWS PHP API Demonstration
 
-This a demonstration of using the AWS SDK with PHP.
+This a demonstration of using the AWS SDK with PHP and using the EC2 PHP libraries.
+
+Also Supports:
+* JmesPath expressions
+* Uses the latest V3 AWS SDK 
+* Allows you to query across multiple regions in one API call (e.g. using wildcards '*', 'us*' or 'ap-*')
+* Make Dynamic queries against the EC2 API. (e.g. any command such as DescribeInstances, DescribeSecurityGroups, LaunchInstances etc...)
 
 Get up and running quickly
 
@@ -19,6 +25,14 @@ php composer.phar install
 cd public
 php -S localhost:8081
 ```
+
+Note you need to set the correct timezone either globally in php or in the public/index.php script.
+``` php
+//set according to your local timezone
+date_default_timezone_set('Pacific/Auckland');
+```
+READ FULL INSTRUCTIONS BELOW ON HOW TO ENSURE YOU HAVE MULTIPLE 
+AWS ACCOUNTS SETUP THROUGH AWS IAM CROSS ACCOUNT ROLES
 
 ## What is it designed to do?
 
@@ -59,6 +73,17 @@ Another example below shows how you can get list the VPCs across all regions usi
 {
 "RoleArn": "arn:aws:iam::<AWS_AccountId>:role/<some_role_name>", 
 "region": "*"
+}
+```
+
+Describe Security Groups across a wildcard set of regions 'e.g All APAC Regions'
+Also note the 'JMESPATH' parameter. This can be used to filter and display human readable output.
+
+``` json
+{
+"RoleArn": "arn:aws:iam::<AWS_AccountId>:role/<some_role_name>", 
+"region": "ap-*",
+"jmespath": "SecurityGroups[].{ID: GroupId, Description: Description, VpcId: VpcId, Name: GroupName, Tags: Tags[*]}"
 }
 ```
 
