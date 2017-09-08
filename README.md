@@ -18,7 +18,7 @@ sudo curl -sS https://getcomposer.org/installer | php
 git clone https://github.com/teemops/phpawsapi.git
 
 #Step 2: install dependencies
-cd phpawspi
+cd phpawsapi
 php composer.phar install
 
 #Step 3: run
