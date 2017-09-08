@@ -1,7 +1,7 @@
 <?
 use Teem\CloudAPI\ec2Data;
 
-$app->get('/test/{name}', function (Request $request, Response $response) {
+$app->get('/test/{name}', function ($request, $response) {
     $name = $request->getAttribute('name');
     $response->getBody()->write("Hello, $name");
     return $response;

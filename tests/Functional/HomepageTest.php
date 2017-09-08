@@ -5,15 +5,14 @@ namespace Tests\Functional;
 class HomepageTest extends BaseTestCase
 {
     /**
-     * Test that the index route returns a rendered response containing the text 'SlimFramework' but not a greeting
+     * Test that the ping route returns a 200
      */
-    public function testGetHomepageWithoutName()
+    public function testGetPing()
     {
-        $response = $this->runApp('GET', '/');
+        $response = $this->runApp('GET', '/ping');
 
         $this->assertEquals(200, $response->getStatusCode());
-        $this->assertContains('SlimFramework', (string)$response->getBody());
-        $this->assertNotContains('Hello', (string)$response->getBody());
+        $this->assertContains('pong', (string)$response->getBody());
     }
 
     /**
@@ -21,20 +20,10 @@ class HomepageTest extends BaseTestCase
      */
     public function testGetHomepageWithGreeting()
     {
-        $response = $this->runApp('GET', '/name');
+        $response = $this->runApp('GET', '/test/name');
 
         $this->assertEquals(200, $response->getStatusCode());
-        $this->assertContains('Hello name!', (string)$response->getBody());
+        $this->assertContains('Hello', (string)$response->getBody());
     }
 
-    /**
-     * Test that the index route won't accept a post request
-     */
-    public function testPostHomepageNotAllowed()
-    {
-        $response = $this->runApp('POST', '/', ['test']);
-
-        $this->assertEquals(405, $response->getStatusCode());
-        $this->assertContains('Method not allowed', (string)$response->getBody());
-    }
 }
