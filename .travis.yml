@@ -5,3 +5,21 @@ php:
   - '7.0'
   #- hhvm # on Trusty only
   #- nightly
+
+matrix:
+  fast_finish: true
+
+
+# We don't want to run linux commands as super user
+sudo: false
+
+# Note: Code coverage requires php Xdebug extension  to enabled
+
+# Composer package installation
+install:
+  # Install composer packages, will also trigger dump-autoload
+  - travis_retry composer install --no-interaction
+  # Install coveralls.phar
+  - wget -c -nc --retry-connrefused --tries=0 https://github.com/satooshi/php-coveralls/releases/download/v1.0.1/coveralls.phar
+  - chmod +x coveralls.phar
+  - php coveralls.phar --version
