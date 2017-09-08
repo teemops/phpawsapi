@@ -14,6 +14,10 @@ $app->get('/test/{name}', function (Request $request, Response $response) {
  * Example: {"RoleArn": "arn:aws:iam::123456789:role/cloudapi", "region": "us-east-1"}
  *
  */
+$app->get('/ping', function ($request, $response, $args) {
+  echo "pong";
+});
+
 $app->post('/vpc/list', function ($request, $response, $args) {
     $ec2Data=new ec2Data(array('iam'=>$this->iam));
     $data = $request->getParsedBody();
