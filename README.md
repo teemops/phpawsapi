@@ -1,6 +1,6 @@
 # Teemops AWS PHP API Demonstration
 
-[![Build Status](https://travis-ci.org/teemops/phpawsapi.svg?branch=travis)](https://travis-ci.org/teemops/phpawsapi)
+[![Build Status](https://travis-ci.org/teemops/phpawsapi.svg)](https://travis-ci.org/teemops/phpawsapi)
 
 This a demonstration of using the AWS SDK with PHP and using the EC2 PHP libraries.
 
