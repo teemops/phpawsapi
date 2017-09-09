@@ -6,7 +6,11 @@ php:
   #- hhvm # on Trusty only
   #- nightly
 
+services:
+  - docker
+
 before_install:
-  - composer self-update
-  - composer install
+  - docker pull -t teemops/phpawsapi .
+  - docker run -d -p 127.0.0.1:80:8001
+
 

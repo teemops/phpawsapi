@@ -1,0 +1,57 @@
+{
+	"variables": [],
+	"info": {
+		"name": "Teemops/phpawsapi",
+		"_postman_id": "b175ece4-6982-c85f-9a26-fb0b10a2e622",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "{{host}}/ping",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"/**",
+							" * Simple REST API tests using Postman Collections",
+							" * ",
+							" */",
+							" //status code check",
+							"tests[\"Status code is 200\"] = responseCode.code === 200;",
+							"",
+							"/*",
+							"var contentTypeHeaderExists = responseHeaders.hasOwnProperty(\"Content-Type\");",
+							" ",
+							"tests[\"Has Content-Type\"] = contentTypeHeaderExists;",
+							"//json test",
+							"if (contentTypeHeaderExists) {",
+							"    tests[\"Content-Type is application/json\"] = ",
+							"      responseHeaders[\"Content-Type\"].has(\"application/json\");",
+							"}",
+							"*/",
+							"",
+							"//get JSON body",
+							"var data=responseBody;",
+							"console.log(\"data: \"+data);",
+							"",
+							"//test for pong value",
+							"tests['PING']=data===\"pong\";",
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "{{host}}/ping",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": "Test for Ping"
+			},
+			"response": []
+		}
+	]
+}
