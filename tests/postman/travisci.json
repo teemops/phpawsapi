@@ -1,0 +1,16 @@
+{
+  "id": "f38e8b32-5631-f2f5-32a1-740e5cd7c134",
+  "name": "travisci",
+  "values": [
+    {
+      "enabled": true,
+      "key": "host",
+      "value": "http://localhost:8081",
+      "type": "text"
+    }
+  ],
+  "timestamp": 1504921616589,
+  "_postman_variable_scope": "environment",
+  "_postman_exported_at": "2017-09-09T01:54:52.153Z",
+  "_postman_exported_using": "Postman/5.2.0"
+}

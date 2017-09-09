@@ -11,6 +11,10 @@ services:
 
 before_install:
   - docker pull -t teemops/phpawsapi .
-  - docker run -d -p 127.0.0.1:80:8001
+  - docker run -d -p 127.0.0.1:8081:8081
+  - npm install -g newman
+
+scripts:
+  - newman run tests/postman/collection.json -e tests/postman/travisci.json
 
 
