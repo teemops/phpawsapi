@@ -15,5 +15,5 @@ WORKDIR /phpawsapi
 RUN /usr/local/bin/composer install
 
 WORKDIR /phpawsapi/public
-EXPOSE 8001
+EXPOSE 8081
 CMD ["php", "-S", "0.0.0.0:8081"]
