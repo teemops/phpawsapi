@@ -5,6 +5,7 @@ you can run this in the cli as follows
 */
 var_dump($argv);
 $jmesPath=(isset($argv[1]) ? $jmesPath=$argv[1] : $jmesPath='');
+$regionNameFilter=(isset($argv[2]) ? $regionNameFilter=$argv[2] : $regionNameFilter='*');
 //$jmesPath='Reservations[].Instances[].{ID: InstanceId, Hostname: PrivateDnsName, Launched: LaunchTime, Tags: Tags, AvailabilityZone: Placement.AvailabilityZone}';
 
 date_default_timezone_set('Pacific/Auckland');
@@ -32,7 +33,7 @@ $regions=$ec2Client->getIterator(
         'Filters' => [
             [
                 'Name' => 'region-name',
-                'Values' => ['ap*']
+                'Values' => [$regionNameFilter]
             ]
         ]
     ]
@@ -59,7 +60,7 @@ foreach($regions as $region){
     array_push(
         $commands, 
         $regionclient->getCommand(
-            'DescribeVpcs'
+            'DescribeInstances'
         )
     );
 
