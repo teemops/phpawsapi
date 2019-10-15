@@ -1,4 +1,4 @@
-<?
+<?php
 
 namespace Teem\CloudAPI;
 

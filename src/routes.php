@@ -1,4 +1,4 @@
-<?
+<?php
 use Teem\CloudAPI\ec2Data;
 
 $app->get('/test/{name}', function ($request, $response) {
