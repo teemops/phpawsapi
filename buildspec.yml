@@ -7,10 +7,6 @@ version: 0.2
 #     LOGIN_PASSWORD: /CodeBuild/dockerLoginPassword
 
 phases:
-  install:
-    runtime-versions:
-      nodejs: 10
-      php: 7.3
     # commands:
     #   - echo Entered the install phase...
     #   - apt-get update -y
